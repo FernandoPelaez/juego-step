@@ -1,15 +1,16 @@
-body {
+html, body {
+  height: 100%;
   margin: 0;
+  padding: 0;
+  overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to bottom, #f2f4fb, #c6ebf8);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   color: #3f3d56;
   text-align: center;
-  overflow: hidden;
 }
 
 .pantalla-inicial,
@@ -24,19 +25,33 @@ body {
   align-items: center;
 }
 
-.zona-juego {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
+h1 {
+  font-size: 2rem;
+  color: #4a3bff;
 }
 
-.contenedor-tablero {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+h1 span {
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  background-color: #8685ef;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #6b69e9;
 }
 
 .tablero {
@@ -44,7 +59,7 @@ body {
   grid-template-columns: repeat(4, 70px);
   gap: 15px;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .carta {
@@ -73,13 +88,11 @@ body {
 }
 
 .mensaje-acierto {
-  margin-top: 10px;
   font-size: 1.1rem;
   color: #4a3bff;
-  animation: aparecer 0.5s ease-in-out;
-  line-height: 1.5;
-  text-align: center;
-  max-width: 90%;
+  margin-top: 10px;
+  min-height: 1.5rem;
+  transition: opacity 0.3s ease;
 }
 
 .mensaje-final {
@@ -107,6 +120,8 @@ body {
 
 #btnReiniciar {
   margin-top: 15px;
+  display: inline-block;
+  align-self: center;
 }
 
 .mensaje-tiempo {
@@ -115,35 +130,6 @@ body {
   margin-top: 10px;
   font-size: 1.1rem;
   animation: aparecer 0.5s ease-in-out;
-}
-
-button {
-  padding: 12px 24px;
-  font-size: 1.1rem;
-  background-color: #8685ef;
-  color: white;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #6b69e9;
-}
-
-h1 {
-  font-size: 2rem;
-  color: #4a3bff;
-}
-
-h1 span {
-  font-weight: bold;
-}
-
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
 }
 
 @keyframes aparecer {
@@ -158,19 +144,14 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  .zona-juego {
-    flex-direction: column;
-    align-items: center;
+  h1 {
+    font-size: 1.5rem;
+    padding: 0 10px;
   }
 
-  .contenedor-tablero {
-    width: auto;
-  }
-
-  .mensaje-acierto {
-    text-align: center;
-    width: auto;
-    font-size: 1rem;
+  h2 {
+    font-size: 1.2rem;
+    padding: 0 10px;
   }
 
   .tablero {
@@ -194,6 +175,11 @@ h2 {
   .mensaje-final {
     margin-top: 30px;
     padding: 0 10px;
+  }
+
+  .mensaje-acierto {
+    font-size: 1rem;
+    min-height: 1.2rem;
   }
 
   .mensaje-final {

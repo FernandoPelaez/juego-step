@@ -8,13 +8,16 @@ const btnReiniciar = document.getElementById("btnReiniciar");
 const btnVolverAJugar = document.getElementById("btnVolverAJugar");
 const tiempoFinal = document.getElementById("tiempoFinal");
 const mensajeTiempo = document.getElementById("mensajeTiempo");
-const reloj = document.getElementById("reloj");
 
+const reloj = document.getElementById("reloj");
 let segundos = 0;
 let temporizador = null;
-let cartas = [];
-let seleccionadas = [];
-let paresEncontrados = 0;
+
+function actualizarReloj() {
+  const min = String(Math.floor(segundos / 60)).padStart(2, '0');
+  const seg = String(segundos % 60).padStart(2, '0');
+  reloj.textContent = `⏱️ ${min}:${seg}`;
+}
 
 const sonidoVoltear = new Audio('sonido/voltear.mp3');
 
@@ -36,14 +39,14 @@ const mensajes = [
   "¡Increíble! No hay reto que no superes 💥🍭"
 ];
 
+let cartas = [];
+let seleccionadas = [];
+let paresEncontrados = 0;
+
 btnComenzar.addEventListener("click", iniciarJuego);
 btnReiniciar.addEventListener("click", () => location.reload());
-btnVolverAJugar?.addEventListener("click", () => location.reload());
-
-function actualizarReloj() {
-  const min = String(Math.floor(segundos / 60)).padStart(2, '0');
-  const seg = String(segundos % 60).padStart(2, '0');
-  reloj.textContent = `⏱️ ${min}:${seg}`;
+if (btnVolverAJugar) {
+  btnVolverAJugar.addEventListener("click", () => location.reload());
 }
 
 function iniciarJuego() {
@@ -51,11 +54,9 @@ function iniciarJuego() {
   juego.style.display = "block";
   mensajeTiempo.textContent = "";
   mensajeAcierto.textContent = "";
-  mensajeAcierto.style.display = "block";
 
   segundos = 0;
   actualizarReloj();
-
   temporizador = setInterval(() => {
     segundos++;
     actualizarReloj();
@@ -87,11 +88,7 @@ function iniciarJuego() {
 function manejarSeleccion(e) {
   const carta = e.target;
 
-  if (
-    seleccionadas.length < 2 &&
-    !carta.classList.contains("acertada") &&
-    !seleccionadas.includes(carta)
-  ) {
+  if (seleccionadas.length < 2 && !carta.classList.contains("acertada") && !seleccionadas.includes(carta)) {
     sonidoVoltear.play();
     carta.textContent = carta.dataset.valor;
     seleccionadas.push(carta);
@@ -104,9 +101,7 @@ function manejarSeleccion(e) {
         seleccionadas = [];
         paresEncontrados++;
 
-        // Mostrar mensaje positivo aleatorio
         mensajeAcierto.textContent = mensajes[Math.floor(Math.random() * mensajes.length)];
-        mensajeAcierto.style.display = "block";
 
         if (paresEncontrados === 8) {
           clearInterval(temporizador);
@@ -125,7 +120,6 @@ function manejarSeleccion(e) {
           carta2.textContent = "❌";
           seleccionadas = [];
           mensajeAcierto.textContent = "";
-          mensajeAcierto.style.display = "none";
         }, 800);
       }
     }
