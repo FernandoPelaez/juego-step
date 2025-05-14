@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Un Tesoro Especial Para Step</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ⏱️ Reloj -->
+  <div class="reloj" id="reloj">⏱️ 00:00</div>
+
+  <!-- Pantalla inicial -->
+  <div class="pantalla-inicial">
+    <h1>🌈 <span>Un Tesoro Especial Para Ti Step</span> 🌸</h1>
+    <button id="btnComenzar">Descubrir</button>
+  </div>
+
+  <!-- Juego -->
+  <div class="juego" id="juego" style="display:none;">
+    <h2>Encuentra los pares mágicos ✨</h2>
+    <div id="tablero" class="tablero"></div>
+    <p id="mensajeAcierto" class="mensaje-acierto"></p>
+    <button id="btnReiniciar">Reiniciar</button>
+  </div>
+
+  <!-- Mensaje final -->
+  <div id="mensajeFinal" class="mensaje-final" style="display:none;">
+    <h2>🔓 ¡Tesoro desbloqueado! 🌟</h2>
+    <p id="tiempoFinal"></p>
+    <button id="btnVolverAJugar">Volver a jugar</button>
+  </div>
+
+  <!-- Confetti y JS -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

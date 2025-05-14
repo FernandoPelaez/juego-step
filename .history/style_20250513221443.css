@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #f2f4fb, #c6ebf8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #3f3d56;
+  text-align: center;
+}
+
+.pantalla-inicial, .juego, .mensaje-final {
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #4a3bff;
+}
+
+h1 span {
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  background-color: #8685ef;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #6b69e9;
+}
+
+.tablero {
+  display: grid;
+  grid-template-columns: repeat(7, 70px);
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.carta {
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  border: 2px solid #b5b7f3;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+.carta:hover {
+  transform: scale(1.05);
+}
+
+.carta.acertada {
+  background-color: #c8f7c5;
+  border-color: #a3e6a1;
+  cursor: default;
+}
+
+.mensaje-acierto {
+  font-size: 1.1rem;
+  color: #4a3bff;
+  margin-top: 10px;
+  min-height: 1.5rem;
+}
+
+.mensaje-final {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4a3bff;
+}
+
+.mensaje-final button {
+  margin-top: 20px;
+}
